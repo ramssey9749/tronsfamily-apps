@@ -78,8 +78,98 @@ body {
 .text_color {text-align: center; color: yellow;}
 
     </style>
+
+<style>
+        #modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        /* All corners square */
+        #modal-box {
+            position: relative; 
+            background: white;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 0; 
+            overflow: hidden; /* Ensures content doesn't bleed past square edges */
+            border: 1px solid yellow; 
+        }
+
+        /* Bright Red Close Button */
+        .btn-close {
+            position: absolute;
+            top: 5px; right: 10px;
+            cursor: pointer;
+            font-size: 32px;
+            color: #ff0000;
+            font-weight: bold;
+            z-index: 20;
+            line-height: 1;
+        }
+
+        /* Top Center Image Container */
+        .image-container {
+            background: white;
+            padding: 0; /* Image sits flush at the top */
+            display: flex;
+            justify-content: center;
+        }
+        #modal-image { 
+            width: 100%; 
+            display: block; 
+            border-radius: 0; 
+        }
+
+        /* Bottom Section (Black) */
+        .text-container {
+            background: black;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        #modal-text { margin-bottom: 25px; line-height: 1.4; }
+
+        #modal-link { 
+            background: #007bff; 
+            color: white; 
+            padding: 12px 24px; 
+            text-decoration: none; 
+            border-radius: 0; 
+            font-weight: bold;
+            display: inline-block;
+        }
+    </style>
+
 </head>
 <body>
+
+
+    <div id="modal-overlay" onclick="closeIfOutside(event)">
+
+        <div id="modal-box">
+            <span class="btn-close" onclick="setItem(0)">&times;</span>
+            
+            <!-- Image at the very top -->
+            <div class="image-container">
+                <img id="modal-image" src="" alt="preview">
+            </div>
+               <p id="software-name">n/a</p>
+            <div class="text-container">
+
+                <p id="modal-text"></p>
+                <a id="modal-link" href="#" target="_blank">View / Download</a>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="headerr">
       <a href="https://ramssey9749.github.io/tronsfamily-main-page/" class="link_color"><div class="main_tag">
@@ -107,91 +197,217 @@ body {
 <div class="a_warning"><p>warning this website is under development and may change</p></div>
 <div class="a_warning"><p>more info under the info tab</p></div>
 
+<div class="text_color"><p>-----------------------------------------------------------------------------------------------------------------------------------------------</p></div>
 <div class="text_color"><p>more tronsfamily sites</p></div>
 
     <div class="appiconheaderr">
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(1)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(2)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
-        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      <a href="#" class="link_color" onclick="setItem(3)"><div class="app_tag">
+        <img src="noappicon.png" alt="" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(4)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
     </div>
 
     <div class="appiconheaderr">
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(5)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(6)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(7)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(8)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
     </div>
 
-
+<div class="text_color"><p>-----------------------------------------------------------------------------------------------------------------------------------------------</p></div>
 <div class="text_color"><p>tronsfamily apps</p></div>
 
     <div class="appiconheaderr">
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(9)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(10)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(11)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(12)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
     </div>
 
     <div class="appiconheaderr">
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(13)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(14)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(15)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
 
-      <a href="" class="link_color"><div class="app_tag">
+      <a href="#" class="link_color" onclick="setItem(16)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+    </div>
+
+<div class="text_color"><p>-----------------------------------------------------------------------------------------------------------------------------------------------</p></div>
+<div class="text_color"><p>tronsfamily tools</p></div>
+
+    <div class="appiconheaderr">
+      <a href="#" class="link_color" onclick="setItem(17)"><div class="app_tag">
+        <img src="downloadtesticon.png" alt="downloadtesticon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>download test</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(18)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(19)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(20)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+    </div>
+
+    <div class="appiconheaderr">
+      <a href="#" class="link_color" onclick="setItem(21)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(22)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(23)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(24)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+    </div>
+
+<div class="text_color"><p>-----------------------------------------------------------------------------------------------------------------------------------------------</p></div>
+<div class="text_color"><p>tronsfamily efforts</p></div>
+
+    <div class="appiconheaderr">
+      <a href="#" class="link_color" onclick="setItem(25)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(26)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(27)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(28)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+    </div>
+
+    <div class="appiconheaderr">
+      <a href="#" class="link_color" onclick="setItem(29)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(30)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(31)"><div class="app_tag">
+        <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
+      </div><div class="text_color"><p>n/a</p></div></a>
+
+      <a href="#" class="link_color" onclick="setItem(32)"><div class="app_tag">
         <img src="noappicon.png" alt="noappicon.png" class="hb"><p>n/a</p>
       </div><div class="text_color"><p>n/a</p></div></a>
     </div>
 
     <script>
+const images = ["", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "downloadtesticon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png", "noappicon.png"];
+
+const labels = ["", "n/a", "n/a","n/a", "n/a",  "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "tests if the download feature \nis working", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a"];
+
+const software_names = ["", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "download test", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a"];
 
 
-// need to add dialog for the clickable "more tronsfamily sites" and the "tronsfamily apps" tabs
+
+const links = ["", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "['test.zip']", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"];
 
 
+
+function setItem(num) {
+    currentItem = num;
+    const overlay = document.getElementById('modal-overlay');
+    const modalLink = document.getElementById('modal-link');
+
+    if (currentItem === 0) {
+        overlay.style.display = 'none';
+    } else {
+        let currentPath = links[currentItem];
+
+        // 1. Check if the string looks like "['file.zip']"
+        if (currentPath.startsWith("['") && currentPath.endsWith("']")) {
+            // Remove the [' and '] characters to get just the filename
+            currentPath = currentPath.slice(2, -2);
+            
+            // 2. Tell the browser this is a download
+            modalLink.setAttribute("download", ""); 
+            modalLink.innerText = "Download Now"; // Update button text
+        } else {
+            // 3. If it's a normal link, remove the download attribute
+            modalLink.removeAttribute("download");
+            modalLink.innerText = "Visit Site"; // Update button text
+        }
+
+        // Apply the cleaned path and other data
+        document.getElementById('modal-image').src = images[currentItem];
+        document.getElementById('software-name').innerText = software_names[currentItem];
+        document.getElementById('modal-text').innerText = labels[currentItem];
+        modalLink.href = currentPath;
+        
+        overlay.style.display = 'flex';
+    }
+}
+
+function closeIfOutside(event) {
+    if (event.target.id === "modal-overlay") {
+        setItem(0);
+    }
+}
 
     </script>
+
 
 </body>
 </html>
